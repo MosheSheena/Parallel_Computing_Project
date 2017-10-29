@@ -4,10 +4,10 @@
 #include <sys/types.h>  /* open() */
 #include <sys/stat.h>
 #include <fcntl.h>
-#include <unistd.h>     /* getopt() */
+//#include <unistd.h>     /* getopt() */
 
 int      _debug;
-#include "kmeans.h"
+#include "k_means.h"
 
 /*---< main() >-------------------------------------------------------------*/
 int main(int argc, char **argv) {
@@ -34,6 +34,7 @@ int main(int argc, char **argv) {
     is_output_timing = 0;
     filename         = NULL;
 
+	/*
     while ( (opt=getopt(argc,argv,"p:i:n:t:abdo"))!= EOF) {
         switch (opt) {
             case 'i': filename=optarg;
@@ -54,12 +55,14 @@ int main(int argc, char **argv) {
                       break;
         }
     }
+	*/
 
-    if (filename == 0 || numClusters <= 1) usage(argv[0], threshold);
+   // if (filename == 0 || numClusters <= 1) usage(argv[0], threshold);
 
-    if (is_output_timing) io_timing = wtime();
+    //if (is_output_timing) io_timing = wtime();
 
     /* read data points from file ------------------------------------------*/
+	/*
     objects = file_read(isBinaryFile, filename, &numObjs, &numCoords);
     if (objects == NULL) exit(1);
 
@@ -68,6 +71,7 @@ int main(int argc, char **argv) {
         io_timing         = timing - io_timing;
         clustering_timing = timing;
     }
+	*/
 
     /* start the timer for the core computation -----------------------------*/
     /* membership: the cluster id for each data object */
